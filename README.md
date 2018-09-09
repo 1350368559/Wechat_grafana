@@ -56,7 +56,7 @@ Type：webhook
 ```
 
 ### 9、修改代码
-取消WechatServer.py文件中行首的注释符号: 
+取消WechatServer.py文件中该行行首的注释符号: 
  
     SendMsg.sendMessageChat(title, description, ruleUrl, imageUrl)
 
