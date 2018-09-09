@@ -45,12 +45,12 @@ Type：webhook
 请求地址： https://qyapi.weixin.qq.com/cgi-bin/appchat/create?access_token=ACCESS_TOKEN  
 请求包体:  
 
-{
+```{
     "name" : "告警群",
     "owner" : "daixuan",
     "userlist" : ["daixuan"],
     "chatid" : "CHATID"
-}
+}```
 
 ### 9、修改代码
 取消WechatServer.py文件中行首的注释符号：
