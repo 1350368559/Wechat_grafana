@@ -18,8 +18,7 @@ Secret:jqwFdaSPLJrpoi_YK4M2-XvJp4BXNUGtB0ztEYUEUXo
     CorpID="ww02946fb9034b5649"
     CorpSecret="jqwFdaSPLJrpoi_YK4M2-XvJp4BXNUGtB0ztEYUEUXo"
     AgentId=1000002
-    
-    同时修改Alarm_people.txt文件中的告警接收人，如果有多个，请写多行（后期会加入聊天组，企业应用会向该聊天组中推送告警信息，不过得先调用api创建组名，因为信息推送的时候需要使用）
+同时修改Alarm_people.txt文件中的告警接收人，如果有多个，请写多行（后期会加入聊天组，企业应用会向该聊天组中推送告警信息，不过得先调用api创建组名，因为信息推送的时候需要使用）
 ### 5、启动服务
 python WechatServer.py 9090 &
 
@@ -27,7 +26,7 @@ python WechatServer.py 9090 &
 请求方式：post  
 请求地址：http://127.0.0.1:9090/api/model/send_sms/  
 请求包体:
-{"evalMatches":[{"value":100,"metric":"High value","tags":null},{"value":200,"metric":"Higher Value","tags":null}],"imageUrl":"http://grafana.org/assets/img/blog/mixed_styles.png","message":"Someone is testing the alert notification within grafana.","ruleId":0,"ruleName":"Test notification","ruleUrl":"http://grafana.prometheus.qiniu.io:80/","state":"alerting","title":"[Alerting] Test notification"}
+    {"evalMatches":[{"value":100,"metric":"High value","tags":null},{"value":200,"metric":"Higher Value","tags":null}],"imageUrl":"http://grafana.org/assets/img/blog/mixed_styles.png","message":"Someone is testing the alert notification within grafana.","ruleId":0,"ruleName":"Test notification","ruleUrl":"http://grafana.prometheus.qiniu.io:80/","state":"alerting","title":"[Alerting] Test notification"}
   
 Postman 返回结果：none  并且企业应用中收到告警信息
 
@@ -44,8 +43,8 @@ Type：webhook
 创建方法参考：https://work.weixin.qq.com/api/doc#13288 ，使用Postman  
 请求方式： POST（HTTPS）  
 请求地址： https://qyapi.weixin.qq.com/cgi-bin/appchat/create?access_token=ACCESS_TOKEN  
-
 请求包体:  
+
 {
     "name" : "告警群",
     "owner" : "daixuan",
