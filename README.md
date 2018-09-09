@@ -26,7 +26,9 @@ python WechatServer.py 9090 &
 请求方式：post  
 请求地址：http://127.0.0.1:9090/api/model/send_sms/  
 请求包体:
-    {"evalMatches":[{"value":100,"metric":"High value","tags":null},{"value":200,"metric":"Higher Value","tags":null}],"imageUrl":"http://grafana.org/assets/img/blog/mixed_styles.png","message":"Someone is testing the alert notification within grafana.","ruleId":0,"ruleName":"Test notification","ruleUrl":"http://grafana.prometheus.qiniu.io:80/","state":"alerting","title":"[Alerting] Test notification"}
+```
+{"evalMatches":[{"value":100,"metric":"High value","tags":null},{"value":200,"metric":"Higher Value","tags":null}],"imageUrl":"http://grafana.org/assets/img/blog/mixed_styles.png","message":"Someone is testing the alert notification within grafana.","ruleId":0,"ruleName":"Test notification","ruleUrl":"http://grafana.prometheus.qiniu.io:80/","state":"alerting","title":"[Alerting] Test notification"}
+```
   
 Postman 返回结果：none  并且企业应用中收到告警信息
 
@@ -44,8 +46,8 @@ Type：webhook
 请求方式： POST（HTTPS）  
 请求地址： https://qyapi.weixin.qq.com/cgi-bin/appchat/create?access_token=ACCESS_TOKEN  
 请求包体:  
-
-```{
+```
+{
     "name" : "告警群",
     "owner" : "daixuan",
     "userlist" : ["daixuan"],
