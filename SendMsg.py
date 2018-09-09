@@ -59,6 +59,7 @@ def postMsg(url, data):
     resp = urllib2.urlopen(req,data)
     return resp.read()
 
+#该函数是企业应用向个人发送告警消息
 def sendMessage(user,title,description,ruleUrl,imageUrl):
     accessToken =  GetAccessToken.GetAccessTokenFromLocal()   
     posturl = 'https://qyapi.weixin.qq.com/cgi-bin/message/send?access_token='+ accessToken    
@@ -88,35 +89,35 @@ def sendMessage(user,title,description,ruleUrl,imageUrl):
         WriteFile.WriteLog('SendMessage','ErrorINFO1',user,'a')
 
 
+#该函数是企业应用向告警群中发送消息，群成员均可以看到且在群中交流
+def sendMessageChat(title,description,ruleUrl,imageUrl):
+    accessToken =  GetAccessToken.GetAccessTokenFromLocal()
+    #posturl = 'https://qyapi.weixin.qq.com/cgi-bin/message/send?access_token='+ accessToken
+    posturl = 'https://qyapi.weixin.qq.com/cgi-bin/appchat/send?access_token='+ accessToken
+    sendResult = postMsg(posturl ,messageBodyChat(title,description,ruleUrl,imageUrl))
+    code = str(json.loads(sendResult)['errcode'])
+    #code = '0'
+    if code == '0':
+        WriteFile.WriteLog('SendMessage','Info','UserName:'  + ' |1_SendMessage:' + title,'a')
+        #WriteFile.WriteLog('SendMessage','OKINFO_1',str(messageBody(title,description,ruleUrl,imageUrl)),'a')
+        #return 'OK'
+    elif code == '42001':
+        GetAccessToken.GetAccessTokenFromWechat()
+        accessToken =  GetAccessToken.GetAccessTokenFromLocal()
+        posturl =  'https://qyapi.weixin.qq.com/cgi-bin/appchat/send?access_token='+ accessToken
+        time.sleep(1)
+        postMsg(posturl ,messageBody(title,description,ruleUrl,imageUrl))
+        WriteFile.WriteLog('SendMessage','Wran','UserName:'  + ' |SendMessage:' + title + ' |Errorcode:'+code,'a')
+    elif code == '40014':
+        GetAccessToken.GetAccessTokenFromWechat()
+        accessToken =  GetAccessToken.GetAccessTokenFromLocal()
+        posturl =  'https://qyapi.weixin.qq.com/cgi-bin/appchat/send?access_token='+ accessToken
+        time.sleep(1)
+        postMsg(posturl ,messageBody(title,description,ruleUrl,imageUrl))
+        WriteFile.WriteLog('SendMessage','Wran','UserName:'  + ' |SendMessage:' + title + ' |Errorcode:'+code,'a')
+    else:
+        WriteFile.WriteLog('SendMessage','Error','UserName:'  + ' |SendMessage:' + title + ' |Errorcode:'+code,'a')
 
-# def sendMessageChat(title,description,ruleUrl,imageUrl):
-#     accessToken =  GetAccessToken.GetAccessTokenFromLocal()
-#     #posturl = 'https://qyapi.weixin.qq.com/cgi-bin/message/send?access_token='+ accessToken
-#     posturl = 'https://qyapi.weixin.qq.com/cgi-bin/appchat/send?access_token='+ accessToken
-#     sendResult = postMsg(posturl ,messageBodyChat(title,description,ruleUrl,imageUrl))
-#     code = str(json.loads(sendResult)['errcode'])
-#     #code = '0'
-#     if code == '0':
-#         WriteFile.WriteLog('SendMessage','Info','UserName:'  + ' |1_SendMessage:' + title,'a')
-#         #WriteFile.WriteLog('SendMessage','OKINFO_1',str(messageBody(title,description,ruleUrl,imageUrl)),'a')
-#         #return 'OK'
-#     elif code == '42001':
-#         GetAccessToken.GetAccessTokenFromWechat()
-#         accessToken =  GetAccessToken.GetAccessTokenFromLocal()
-#         posturl =  'https://qyapi.weixin.qq.com/cgi-bin/appchat/send?access_token='+ accessToken
-#         time.sleep(1)
-#         postMsg(posturl ,messageBody(title,description,ruleUrl,imageUrl))
-#         WriteFile.WriteLog('SendMessage','Wran','UserName:'  + ' |SendMessage:' + title + ' |Errorcode:'+code,'a')
-#     elif code == '40014':
-#         GetAccessToken.GetAccessTokenFromWechat()
-#         accessToken =  GetAccessToken.GetAccessTokenFromLocal()
-#         posturl =  'https://qyapi.weixin.qq.com/cgi-bin/appchat/send?access_token='+ accessToken
-#         time.sleep(1)
-#         postMsg(posturl ,messageBody(title,description,ruleUrl,imageUrl))
-#         WriteFile.WriteLog('SendMessage','Wran','UserName:'  + ' |SendMessage:' + title + ' |Errorcode:'+code,'a')
-#     else:
-#         WriteFile.WriteLog('SendMessage','Error','UserName:'  + ' |SendMessage:' + title + ' |Errorcode:'+code,'a')
-#
 
 
         #WriteFile.WriteLog('SendMessage','ErrorINFO1','a')

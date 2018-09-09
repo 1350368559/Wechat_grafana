@@ -31,5 +31,5 @@ def GetAccessTokenFromLocal():
     #cf.close
     return LocalAccessToken
 
-GetAccessTokenFromWechat()
+#GetAccessTokenFromWechat() //如果发现返回code：301002 等token过期问题，取消该行注释，执行python GetAccessToken.py重新获取token
 #print GetAccessTokenFromLocal()   
