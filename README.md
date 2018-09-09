@@ -24,28 +24,26 @@ Secret:jqwFdaSPLJrpoi_YK4M2-XvJp4BXNUGtB0ztEYUEUXo
 python WechatServer.py 9090 &
 
 ### 6、psotman 访问测试（该步骤可以跳过，只是为了测试）
-请求方式：post
-请求地址：http://127.0.0.1:9090/api/model/send_sms/
+请求方式：post  
+请求地址：http://127.0.0.1:9090/api/model/send_sms/  
 请求包体: {"evalMatches":[{"value":100,"metric":"High value","tags":null},{"value":200,"metric":"Higher Value","tags":null}],"imageUrl":"http://grafana.org/assets/img/blog/mixed_styles.png","message":"Someone is testing the alert notification within grafana.","ruleId":0,"ruleName":"Test notification","ruleUrl":"http://grafana.prometheus.qiniu.io:80/","state":"alerting","title":"[Alerting] Test notification"}
-
+  
 Postman 返回结果：none  并且企业应用中收到告警信息
 
 ### 7、grafana上配置告警
-打开自己的grafana页面，【设置】-【Alerting】-【Notification channels】 + New Channel
-
-Name: webchat（自定义）
-Type：webhook
-设置【Webhook settings】url：http://127.0.0.1:9090/api/model/send_sms/ 
-(ip地址、端口自与启动服务的端口对应，转发地址：/api/model/send_sms/ 与WechatServer.py文件中【设置webpy的接口】对应）
-
+打开自己的grafana页面，【设置】-【Alerting】-【Notification channels】 + New Channel  
+Name: webchat（自定义）  
+Type：webhook  
+设置【Webhook settings】url：http://127.0.0.1:9090/api/model/send_sms/   
+(ip地址、端口自与启动服务的端口对应，转发地址：/api/model/send_sms/ 与WechatServer.py文件中【设置webpy的接口】对应）  
 然后在对应的监控页面中设置告警规则，其中【Alert】-【Notifications】设选中添加的Name为：webchat的告警通道
 
 # 向群聊会话中推送消息 
 ### 8、首先创建一个群
-创建方法参考：https://work.weixin.qq.com/api/doc#13288 ，使用Postman
-请求方式： POST（HTTPS）
-请求地址： https://qyapi.weixin.qq.com/cgi-bin/appchat/create?access_token=ACCESS_TOKEN
-请求包体:
+创建方法参考：https://work.weixin.qq.com/api/doc#13288 ，使用Postman  
+请求方式： POST（HTTPS）  
+请求地址： https://qyapi.weixin.qq.com/cgi-bin/appchat/create?access_token=ACCESS_TOKEN  
+请求包体:  
 {
     "name" : "告警群",
     "owner" : "daixuan",
@@ -55,11 +53,9 @@ Type：webhook
 
 ### 9、修改代码
 取消WechatServer.py文件中行首的注释符号：
-
                     SendMsg.sendMessageChat(title, description, ruleUrl, imageUrl)
 
 ### 10、重新启动服务
 python WechatServer.py 9090 &
-
 参考方法6、7步骤进行实际测试，用户daixuan会在【告警群】收到对应的告警通知
 
