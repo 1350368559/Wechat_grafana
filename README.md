@@ -42,7 +42,7 @@ Type：webhook
 
 # 向群聊会话中推送消息 
 ### 8、首先创建一个群
-创建方法参考：https://work.weixin.qq.com/api/doc#13288 ，使用Postman  
+创建方法参考：https://work.weixin.qq.com/api/doc#13288 ，使用Postman创建群的参数：  
 请求方式： POST（HTTPS）  
 请求地址： https://qyapi.weixin.qq.com/cgi-bin/appchat/create?access_token=ACCESS_TOKEN  
 请求包体:  
