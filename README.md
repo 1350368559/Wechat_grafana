@@ -60,6 +60,6 @@ Type：webhook
                     SendMsg.sendMessageChat(title, description, ruleUrl, imageUrl)
 
 ### 10、重新启动服务
-python WechatServer.py 9090 &
+python WechatServer.py 9090 &  
 参考方法6、7步骤进行实际测试，用户daixuan会在【告警群】收到对应的告警通知
 
