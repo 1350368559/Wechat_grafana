@@ -7,9 +7,9 @@
 输入申请信息，微信扫码绑定管理员，在【我的企业】-【企业信息】最末行获取企业id: ww02946fb9034b5649，同时请在【通讯录】中创建相关的部门，例如：【人工智能实验室】，添加用户daixuan，并增加用户到相应部门中。
 
 ### 2、创建企业应用，用于推送信息，创建方法：
-打开【应用与小程序】https://work.weixin.qq.com/wework_admin/frame#apps ，选择【应用】，点击【创建应用】，注意：上传应用的logo，设置应用名称，选择可见应用部门范围（一般是一个企业部门对应一个应用），创建好后点击创建的应用，获取：
-AgentId:1000002
-Secret:jqwFdaSPLJrpoi_YK4M2-XvJp4BXNUGtB0ztEYUEUXo
+打开【应用与小程序】https://work.weixin.qq.com/wework_admin/frame#apps ，选择【应用】，点击【创建应用】，注意：上传应用的logo，设置应用名称，选择可见应用部门范围（注意，这里应用应该属于企业而不是单独某个部门，否则后面创建回话群聊失败，错误码：60011），创建好后点击创建的应用，获取：
+AgentId:1000003
+Secret:X56RLPUFZYyoaEBCNaZecSkWN-s3_ZRdKMYlK2KJuCA
 
 ### 3、安装web.py 
 参考：http://webpy.org/install  这里不详细赘述
