@@ -12,28 +12,28 @@ import sys
 
 def messageBody(touser,title,description,ruleUrl,imageUrl):
     message = {
-        "touser":touser,
-               #"toparty": PartyID1,
-               #"totag": totag,
-               "msgtype": "news",
-                   "agentid": 1000002,
-                   "news" : {
-                   "articles" : [
-                       {
-                           "title" : title,
-                           "description" : description,
-                           "url" : ruleUrl,
-                           "picurl" : imageUrl,
-                           "btntxt":"更多"
-                       }
-                    ]
-               }
+            "touser":touser,
+            #"toparty": PartyID1, #这是发送到整个部门
+            #"totag": totag,
+            "msgtype": "news",
+            "agentid": 1000003,
+            "news" : {
+            "articles" : [
+                {
+                    "title" : title,
+                    "description" : description,
+                    "url" : ruleUrl,
+                    "picurl" : imageUrl,
+                    "btntxt":"更多"
+                    }
+                ]
+            }
         }
     return message
 
 def messageBodyChat(title,description,ruleUrl,imageUrl):
     message = {
-        "chatid": "DoraSreInsideTest",
+        "chatid": "AITest",
         "msgtype": "news",
         "news" : {
             "articles" : [
