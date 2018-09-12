@@ -4,7 +4,6 @@
 # 使用方法：
 ### 1、请先注册企业微信：
 打开企业微信注册页面：https://work.weixin.qq.com/wework_admin/register_wx?from=myhome  
-
 输入申请信息，微信扫码绑定管理员，在【我的企业】-【企业信息】最末行获取企业id: ww02946fb9034b5649(每个企业id都不同)
 
 
