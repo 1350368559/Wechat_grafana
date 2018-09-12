@@ -19,9 +19,11 @@ Secret:X56RLPUFZYyoaEBCNaZecSkWN-s3_ZRdKMYlK2KJuCA
 
 ### 4、Clone代码到服务器,修改GetAccessToken.py文件中的企业自定义的信息
 这三条信息是获取token的必要信息，token是2小时（7200s）过期一次，代码会获取返回code，过期重新获取token:  
+```
     CorpID="ww02946fb9034b5649"  
     CorpSecret="jqwFdaSPLJrpoi_YK4M2-XvJp4BXNUGtB0ztEYUEUXo"  
     AgentId=1000002  
+```
 同时修改Alarm_people.txt文件中的告警接收人，如果有多个，请写多行（后期会加入群聊组，企业应用会向该群聊组中推送告警信息）  
 ### 5、启动服务
     python WechatServer.py 8080 &
@@ -39,8 +41,8 @@ autorestart=true
 user=root  
 ```
 然后执行:
-    supervisorctl reread
-    supervisorctl add wechat-grafana
+    supervisorctl reread  
+    supervisorctl add wechat-grafana  
 
 
 ### 6、psotman 访问测试（该步骤可以跳过，只是为了测试）
@@ -57,8 +59,7 @@ Postman 返回结果：none  并且企业应用中收到告警信息
 打开自己的grafana页面，【设置】-【Alerting】-【Notification channels】 + New Channel  
 Name: webchat（自定义）  
 Type：webhook  
-设置【Webhook settings】url：http://127.0.0.1:9090/api/model/send_sms/   
-(ip地址、端口自与启动服务的端口对应，转发地址：/api/model/send_sms/ 与WechatServer.py文件中【设置webpy的接口】对应）  
+设置【Webhook settings】url：http://127.0.0.1:9090/api/model/send_sms/ （注意：webhok的ip地址、端口应该与启动服务的ip、端口一一对应，转发地址：/api/model/send_sms/ 与WechatServer.py代码文件呢中【设置web.py的接口】对应    
 然后在对应的监控页面中设置告警规则，其中【Alert】-【Notifications】设选中添加的Name为：webchat的告警通道
 
 # 向群聊会话中推送消息 
