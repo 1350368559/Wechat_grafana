@@ -17,11 +17,12 @@ Secret:X56RLPUFZYyoaEBCNaZecSkWN-s3_ZRdKMYlK2KJuCA
 ### 3、安装web.py 
 参考：http://webpy.org/install  这里不详细赘述
 
-### 4、clone代码到服务器，修改GetAccessToken.py文件中的企业自定义的信息（这是获取token的必要信息，token是2小时过期一次，这里会获取返回code，过期重新获取）：
-    CorpID="ww02946fb9034b5649"
-    CorpSecret="jqwFdaSPLJrpoi_YK4M2-XvJp4BXNUGtB0ztEYUEUXo"
-    AgentId=1000002
-同时修改Alarm_people.txt文件中的告警接收人，如果有多个，请写多行（后期会加入聊天组，企业应用会向该聊天组中推送告警信息，不过得先调用api创建组名，因为信息推送的时候需要使用）
+### 4、Clone代码到服务器,修改GetAccessToken.py文件中的企业自定义的信息
+这三条信息是获取token的必要信息，token是2小时（7200s）过期一次，代码会获取返回code，过期重新获取token:  
+    CorpID="ww02946fb9034b5649"  
+    CorpSecret="jqwFdaSPLJrpoi_YK4M2-XvJp4BXNUGtB0ztEYUEUXo"  
+    AgentId=1000002  
+同时修改Alarm_people.txt文件中的告警接收人，如果有多个，请写多行（后期会加入群聊组，企业应用会向该群聊组中推送告警信息）  
 ### 5、启动服务
     python WechatServer.py 8080 &
 
