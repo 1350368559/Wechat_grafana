@@ -11,9 +11,10 @@
 打开【应用与小程序】https://work.weixin.qq.com/wework_admin/frame#apps ，选择【应用】，点击【创建应用】  
 然后上传应用的logo，设置应用名称，选择可见应用部门范围（注意，添加的应用应该属于企业而不是单独某个部门，否则创建会话群聊失败，错误码：60011)  
 创建好后点击应用，获取:  
+```
 AgentId:1000003 #企业ID是1000001，创建子部门顺序加1  
 Secret:X56RLPUFZYyoaEBCNaZecSkWN-s3_ZRdKMYlK2KJuCA  
-
+```
 ### 3、安装web.py 
 参考：http://webpy.org/install  这里不详细赘述
 
