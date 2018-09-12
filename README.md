@@ -22,8 +22,8 @@ Secret:X56RLPUFZYyoaEBCNaZecSkWN-s3_ZRdKMYlK2KJuCA
 这三条信息是获取token的必要信息，token是2小时（7200s）过期一次，代码会获取返回code，过期重新获取token:  
 ```
     CorpID="ww02946fb9034b5649"  
-    CorpSecret="jqwFdaSPLJrpoi_YK4M2-XvJp4BXNUGtB0ztEYUEUXo"  
-    AgentId=1000002  
+    CorpSecret="X56RLPUFZYyoaEBCNaZecSkWN-s3_ZRdKMYlK2KJuCA"  
+    AgentId=1000003
 ```
 同时修改Alarm_people.txt文件中的告警接收人，如果有多个，请写多行（后期会加入群聊组，企业应用会向该群聊组中推送告警信息）  
 ### 5、启动服务
