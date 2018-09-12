@@ -3,8 +3,10 @@
 
 # 使用方法：
 ### 1、请先注册企业微信：
-打开企业微信注册页面：https://work.weixin.qq.com/wework_admin/register_wx?from=myhome
+打开企业微信注册页面：https://work.weixin.qq.com/wework_admin/register_wx?from=myhome  
+
 输入申请信息，微信扫码绑定管理员，在【我的企业】-【企业信息】最末行获取企业id: ww02946fb9034b5649(每个企业id都不同)
+
 
 ### 2、创建企业应用，用于推送信息，创建方法：
 打开【应用与小程序】https://work.weixin.qq.com/wework_admin/frame#apps ，选择【应用】，点击【创建应用】，注意：上传应用的logo，设置应用名称，选择可见应用部门范围（注意，这里应用应该属于企业而不是单独某个部门，否则后面创建回话群聊失败，错误码：60011），创建好后点击创建的应用，获取：
