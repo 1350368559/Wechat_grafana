@@ -103,7 +103,7 @@ class send_sms:
             imageUrl=null
 
         f = open("./Alarm_people.txt", "r")
-        flag=1#flag是拨通电话的标志位，flag=1说明没有人接听，flag=0说明已经有人接听，有接听电话后，会把flag置位0，不拨打下一个人，否则继续oncall下一个人
+        flag=1
         while True:
             line = f.readline()
             if line:  # 或者用 if line != "":
